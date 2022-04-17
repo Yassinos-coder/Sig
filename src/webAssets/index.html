@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Les soldes intermédiaires de gestion (SIG)</title>
+    <link rel="stylesheet" href="css/index.css">
+    <script src="js/main.js"></script>
+</head>
+<!-- Developped By Yassine Castro aka Yassinos -->
+
+<body>
+    <div id="H1">
+        <h1>Les soldes intermédiaires de gestion (SIG)</h1>
+        <div id="action">
+            <button class="button-cancel" onclick="AllReload()" type="cancel">Annuler les calculs</button>
+            <button class="button-submit" onclick="LaunchAllOps()" type="submit">Commencer les calculs</button>
+        </div>
+    </div>
+
+    <!-- In here SIG table starts -->
+    <div id="sig">
+        <table class="content-table">
+            <tr>
+                <th width="25%">Produits</th>
+                <th width="10%">Montant</th>
+                <th width="25%">Charges</th>
+                <th width="10%">Montant</th>
+                <th width="25%">Soldes Intermédiaires de Gestion</th>
+                <th width="10%">Montant</th>
+            </tr>
+            <tr>
+                <td>Ventes de Marchandises</td>
+                <td>
+                    <p><input id="1" type="text" placeholder="Entré(e) le Montant"></p>
+                </td>
+                <td>Coût d'achat des marchandises vendues</td>
+                <td>
+                    <p><input id="2" type="text" placeholder="Entré(e) le Montant"></p>
+                </td>
+                <td>Marge Commerciale</td>
+                <td>
+                    <p class="results" id="3"></p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p class="totals">Le total est de ➤</p>
+                </td>
+                <td>
+                    <p class="results" id="4"></p>
+                </td>
+                <td>
+                    <p class="totals">Le total est de ➤</p>
+                </td>
+                <td>
+                    <p class="results" id="5"></p>
+                </td>
+                <td>
+                    <p class="totals">Le total est de ➤</p>
+                </td>
+                <td>
+                    <p class="results" id="6"></p>
+                </td>
+            </tr>
+            <tr>
+                <td>Production Vendue <br> Production Stockée <br>Production immobilisé</td>
+                <td>
+                    <p><input id="7" type="text" placeholder="Entré(e) le Montant"></p>
+                    <p><input id="8" type="text" placeholder="Entré(e) le Montant"></p>
+                    <p><input id="9" type="text" placeholder="Entré(e) le Montant"></p>
+                </td>
+                <td>ou Destockage de Production</td>
+                <td>
+                    <p><input id="10" type="text" placeholder="Entré(e) le Montant"></p>
+                </td>
+                <td>Production de l'exercice</td>
+                <td>
+                    <p class="results" id="11"></p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p class="totals">Le total est de ➤</p>
+                </td>
+                <td>
+                    <p class="results" id="12"></p>
+                </td>
+                <td>
+                    <p class="totals">Le total est de ➤</p>
+                </td>
+                <td>
+                    <p class="results" id="13"></p>
+                </td>
+                <td>
+                    <p class="totals">Le total est de ➤</p>
+                </td>
+                <td>
+                    <p class="results" id="14"></p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>Production de l'exercice <br> Marge Commerciale</td>
+
+                <td>
+                    <p id="Pe-rslt"></p>
+                    <p id="Cm-rslt"></p>
+                </td>
+
+                <td>Consommation de l'exercice en provenance de tiers</td>
+                <td>
+                    <p><input id="16" type="text" placeholder="Entré(e) le Montant"></p>
+                </td>
+
+                <td>Valeur Ajouté</td>
+                <td>
+                    <p class="results" id="17"></p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p class="totals">Le total est de ➤</p>
+                </td>
+                <td>
+                    <p class="results" id="18"></p>
+                </td>
+                <td>
+                    <p class="totals">Le total est de ➤</p>
+                </td>
+                <td>
+                    <p class="results" id="19"></p>
+                </td>
+                <td>
+                    <p class="totals">Le total est de ➤</p>
+                </td>
+                <td>
+                    <p class="results" id="20"></p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>Valeur Ajouté <br> Subventions d'exploitation</td>
+                <td>
+                    <p id="Va-rslt"></p>
+                    <p><input id="22" type="text" placeholder="Entré(e) le Montant"></p>
+                </td>
+                <td>Impôts, taxes et versements assimilés <br> Charges du personnel</td>
+                <td>
+                    <p><input id="23" type="text" placeholder="Entré(e) le Montant"></p>
+                    <p><input id="24" type="text" placeholder="Entré(e) le Montant"></p>
+                </td>
+                <td>Excedent brut (ou insuffisance brute) d'exploitation</td>
+                <td>
+                    <p class="results" id="28-tb"></p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p class="totals">Le total est de ➤</p>
+                </td>
+                <td>
+                    <p class="results" id="26"></p>
+                </td>
+                <td>
+                    <p class="totals">Le total est de ➤</p>
+                </td>
+                <td>
+                    <p class="results" id="27"></p>
+                </td>
+                <td>
+                    <p class="totals">Le total est de ➤</p>
+                </td>
+                <td>
+                    <p class="results" id="28"></p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>Excedent brut d'exploitation <br> Reprises sur Charges et transferts de Charges <br> Autres Produits</td>
+                <td>
+                    <p id="ebe-rslt+"></p>
+                    <p><input id="30" type="text" placeholder="Entré(e) le Montant"></p>
+                    <p><input id="31" type="text" placeholder="Entré(e) le Montant"></p>
+                </td>
+                <td>(ou insuffisance brute) d'exploitation <br> Dotations aux ammortissements et aux provisions <br>Autres Charges</td>
+                <td>
+                    <p id="ebe-rslt-"></p>
+                    <p><input id="33" type="text" placeholder="Entré(e) le Montant"></p>
+                    <p><input id="34" type="text" placeholder="Entré(e) le Montant"></p>
+                </td>
+                <td>Résultat d'exploitation</td>.
+                <td>
+                    <p class="results" id="38-tb"></p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p class="totals">Le total est de ➤</p>
+                </td>
+                <td>
+                    <p class="results" id="36"></p>
+                </td>
+                <td>
+                    <p class="totals">Le total est de ➤</p>
+                </td>
+                <td>
+                    <p class="results" id="37"></p>
+                </td>
+                <td>
+                    <p class="totals">Le total est de ➤</p>
+                </td>
+                <td>
+                    <p class="results" id="38"></p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>Résultat d'exploitation <br> Produits financiers </td>
+                <td>
+                    <p id="re-rslt+"></p>
+                    <p><input id="40" type="text" placeholder="Entré(e) le Montant"></p>
+
+                </td>
+                <td> ou Résultat d'exploitation <br>Charges financiers </td>
+                <td>
+                    <p id="re-rslt-"></p>
+                    <p><input id="44" type="text" placeholder="Entré(e) le Montant"></p>
+                </td>
+                <td>Résultats courants avant impôts</td>.
+                <td>
+                    <p class="results" id="48-tb"></p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p class="totals">Le total est de ➤</p>
+                </td>
+                <td>
+                    <p class="results" id="46"></p>
+                </td>
+                <td>
+                    <p class="totals">Le total est de ➤</p>
+                </td>
+                <td>
+                    <p class="results" id="47"></p>
+                </td>
+                <td>
+                    <p class="totals">Le total est de ➤</p>
+                </td>
+                <td>
+                    <p class="results" id="48"></p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>Produits exceptionnels </td>
+                <td>
+                    <p><input id="49" type="text" placeholder="Entré(e) le Montant"></p>
+                </td>
+                <td> Charges exceptionnelles</td>
+                <td>
+                    <p><input id="50" type="text" placeholder="Entré(e) le Montant"></p>
+                </td>
+                <td> Résultats exceptionnels</td>.
+                <td>
+                    <p class="results" id="51"></p>
+                </td>
+            </tr>
+
+            <tr>
+                <td> Résultats courants avant impôts <br> Résultat exceptionnnel </td>
+                <td>
+                    <p id="rcai-pos"></p>
+                    <p id="rx-pos"></p>
+                </td>
+                <td> Résultats courants avant impôts <br> Résultat exceptionnnel <br>Impôts Sur Les Benefices </td>
+                <td>
+                    <p id="rcai-neg"></p>
+                    <p id="rx-neg"></p>
+                    <p><input id="55" type="text" placeholder="Entré(e) le Montant"></p>
+                </td>
+                <td>Résultats de l'exercice</td>.
+                <td>
+                    <p class="results" id="59-tb"></p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p class="totals">Le total est de ➤</p>
+                </td>
+                <td>
+                    <p class="results" id="57"></p>
+                </td>
+                <td>
+                    <p class="totals">Le total est de ➤</p>
+                </td>
+                <td>
+                    <p class="results" id="58"></p>
+                </td>
+                <td>
+                    <p class="totals">Le total est de ➤</p>
+                </td>
+                <td>
+                    <p class="results" id="59"></p>
+                </td>
+            </tr>
+
+            <tr>
+                <td> Produits de cessions d'éléments d'actif </td>
+                <td>
+                    <p><input id="60" type="text" placeholder="Entré(e) le Montant"></p>
+                </td>
+                <td> Valeur comptable des éléments cédés </td>
+                <td>
+                    <p><input id="61" type="text" placeholder="Entré(e) le Montant"></p>
+                </td>
+                <td>Résultats sur cessions d'eléments d'actif immobilisés</td>.
+                <td>
+                    <p class="results" id="62"></p>
+                </td>
+
+            </tr>
+        </table>
+
+    </div>
+
+</body>
+
+</html>
