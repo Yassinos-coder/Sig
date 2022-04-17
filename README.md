@@ -1,5 +1,5 @@
 # Soldes Intermediares de Gestion
-Ce projet a été développé par un étudiant en finance, c'est une application automatisée qui peut faire des opérations liées à SIG
+Ce projet a été développé par un étudiant en finance, c'est une application automatisée qui peut faire des opérations liées au SIG
 
 ## Usage
 ```
